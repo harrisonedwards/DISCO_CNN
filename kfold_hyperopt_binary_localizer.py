@@ -14,7 +14,7 @@ from hyperopt import fmin, tpe, hp, STATUS_OK, Trials, STATUS_FAIL
 import time
 
 def get_data(split_n,params):
-	data_loc = 'binary_data.p'
+	data_loc = os.path.join('Data', 'binary_data.p')
 	x_train,x_val,y_train,y_val = pickle.load(open(data_loc,'rb'))
 	x_train = np.concatenate((x_train,x_val), 0)
 	y_train = np.concatenate((y_train,y_val), 0)

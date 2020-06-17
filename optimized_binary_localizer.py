@@ -1,6 +1,6 @@
 # coding: utf-8
 
-import pickle
+import pickle, os
 import keras
 from keras.layers import *
 from keras.optimizers import *
@@ -64,7 +64,7 @@ tbCallBack = TensorBoard(log_dir='tensorboard/{}_{}'.format(id_str,str(initial_e
 save_loc = 'binary_localizer_{}.hdf5'.format(id_str)
 checkpointer = ModelCheckpoint(filepath=save_loc, verbose=1, save_best_only=True)
 
-data_loc = 'binary_data.p'
+data_loc = os.path.join('Data', 'binary_data.p')
 x_train,x_val,y_train,y_val = pickle.load(open(data_loc,'rb'))
 
 seed = 1
